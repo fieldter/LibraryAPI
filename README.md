@@ -5,18 +5,18 @@
 - You are tasked with **expanding and improving the codebase** found in this repo! Your tasks will be updated below as Deliverables.
 
 
-# Deliverable 1
+# Deliverable 1 (Tuesday)
 
 - hi
 
-# Deliverable 2
+# Deliverable 2 (Wednesday)
 
 -TBD
 
-# Deliverable 2
+# Deliverable 2 (Thursday)
 
 -TBD
 
-# Deliverable 2
+# Deliverable 2 (Friday)
 
 -TBD

@@ -12,8 +12,8 @@
 ### Hints
 
 - The script for the entities and data are in this repo for you. Save yourself some time and just copy & run it in DBeaver.
-- This API is not going to work right off the bat. You and your partner will need to fill in DB credentials in the ConnectionFactory, and the application.properties
-- There is a rookie mistake in the Controller layer that will prevent the APi from compiling. Figure out how to fix this "ambiguous" problem.
+- This API is not going to work right off the bat. You and your partner will need to fill in DB credentials in the ConnectionFactory, and the application.properties. Up to you if you want to spin up a remote database, or if you want one person coding and the other providing support.
+- There is a rookie mistake in the Controller layer that will prevent the API from compiling. Figure out how to fix this "ambiguous" problem.
 
 # Deliverable 2 (Wednesday)
 

@@ -38,6 +38,7 @@ public class BookController {
 
     @PostMapping
     public ResponseEntity<Book> insertNewBook(@RequestBody Book book){
+        br.insertBook(book);
         return null;
     }
 
@@ -49,10 +50,10 @@ public class BookController {
         return null;
     }
 
-    @GetMapping(value="/{id}")
-    public ResponseEntity<List<Book>> getBooksByAuthorId(@PathVariable int id) {
-        return null;
-    }
+//    @GetMapping(value="/{id}")
+//    public ResponseEntity<List<Book>> getBooksByAuthorId(@PathVariable int id) {
+//        return null;
+//    }
 
 }
 

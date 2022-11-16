@@ -64,5 +64,26 @@ public class BookController {
         }
     }
 
+    @GetMapping(value="/stocked/{id}")
+    public ResponseEntity<String> getIsBookInStock(@PathVariable int id) {
+        String response;
+        if (bookService.isBookInStock(id)) {
+            response = "Book with id " + id + " is in stock.";
+        } else {
+            response = "Book with id " + id + " is NOT in stock.";
+        }
+        return ResponseEntity.ok(response);
+    }
+
+    @PutMapping(value="/{id}")
+    public ResponseEntity<Book> switchInStock(@PathVariable int id) {
+        Book updatedBook = bookService.updateInStock(id);
+        if (updatedBook == null) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(updatedBook);
+        }
+    }
+
 }
 

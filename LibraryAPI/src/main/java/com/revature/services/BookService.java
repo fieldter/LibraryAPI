@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 @Service
 public class BookService {
@@ -44,5 +45,26 @@ public class BookService {
         List<Book> books = bookRepo.findAllByAuthorId(id);
         if (books.isEmpty()) return null;
         return books;
+    }
+
+    public boolean isBookInStock(int id) {
+        try {
+            Book book = bookRepo.findById(id).orElseThrow(() -> new RuntimeException("Provided id does not match any book in the database"));
+            return book.getIsStocked();
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public Book updateInStock(int id) {
+        try {
+            Book updatedBook = bookRepo.findById(id).orElseThrow(() -> new RuntimeException("Provided id does not match any book in the database"));
+            updatedBook.setIsStocked(!updatedBook.getIsStocked());
+            return bookRepo.save(updatedBook);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

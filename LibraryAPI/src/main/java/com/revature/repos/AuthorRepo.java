@@ -2,6 +2,7 @@ package com.revature.repos;
 
 import com.revature.models.Author;
 import com.revature.utils.ConnectionFactory;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -10,9 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Repository
-public class AuthorRepo implements AuthorRepoInterface {
+public interface AuthorRepo extends JpaRepository<Author,Integer> {
 
-
+/*
     @Override
     public Author getAuthorById(int id) {
 
@@ -42,5 +43,5 @@ public class AuthorRepo implements AuthorRepoInterface {
 
         return null;
     }
-
+*/
 }

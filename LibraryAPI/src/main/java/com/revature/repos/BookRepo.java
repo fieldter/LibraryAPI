@@ -3,15 +3,22 @@ package com.revature.repos;
 import com.revature.models.Author;
 import com.revature.models.Book;
 import com.revature.utils.ConnectionFactory;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public class BookRepo implements BookRepoInterface {
+public interface BookRepo extends JpaRepository<Book,Integer> {
 
+    @Query(value = "FROM Book WHERE author_id = :authorId")
+    public List<Book> findAllByAuthorId(int authorId);
+
+    /*
     @Override
     public List<Book> getAllBooks() {
         AuthorRepo ar = new AuthorRepo();
@@ -120,7 +127,7 @@ public class BookRepo implements BookRepoInterface {
     }
 
     @Override
-    public List<Book> getBooksByAuthorId (int id){
+    public List<Book> getBooksByAuthorId (int id) {
         AuthorRepo ar = new AuthorRepo();
         try (Connection conn = ConnectionFactory.getConnection()) {
             String sql = "select * from library.books where author_id_fk=?;";
@@ -160,4 +167,5 @@ public class BookRepo implements BookRepoInterface {
 
         return null;
     }
+    */
 }

@@ -11,20 +11,21 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
+    @Column(name = "book_id")
     private int bookId;
 
-    @Column
+    @Column(name = "book_title")
     private String title;
 
-    @Column
+    @Column(name = "is_stocked")
     private boolean isStocked;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-    @JoinColumn(name = "author_id")
+    @JoinColumn(name = "author_id_fk")
     public Author authorFk;
 
-    
+    @Column(name = "genre")
+    private Genre genre;
 
     //Boilerplate code below------------------------------
 
@@ -32,11 +33,20 @@ public class Book {
     public Book() {
     }
 
-    public Book(int bookId, String title, boolean isStocked, Author authorFk) {
+    public Book(int bookId, String title, boolean isStocked, Author authorFk, Genre genre) {
         this.bookId = bookId;
         this.title = title;
         this.isStocked = isStocked;
         this.authorFk = authorFk;
+        this.genre = genre;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
     }
 
     public int getBookId() {

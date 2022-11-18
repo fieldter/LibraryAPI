@@ -24,6 +24,7 @@ public class Book {
     @JoinColumn(name = "author_id")
     public Author authorFk;
 
+    
 
     //Boilerplate code below------------------------------
 
